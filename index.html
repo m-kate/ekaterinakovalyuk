@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Emojis</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Hiding Safari User Interface Components -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Changing the Status Bar Appearance -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Splash screen for iOS -->
+    <link rel="apple-touch-startup-image" href="icons/apple-launch-828x1792.png">
+    <meta name="apple-mobile-web-app-title" content="Emojis">
+
+    <!-- App icon for iOS -->
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon-80x80.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="icons/touch-icon-ipad-retina.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="app.css">
+
+    <!-- Font Awesome -->
+    <style type="text/css">
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-style: normal;
+            font-weight: 900;
+            font-display: block;
+            src: url('.webfonts/fa-solid-900.woff2') format('woff2'),
+                url('.webfonts/fa-solid-900.ttf') format('truetype');
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="slidemenu.js" defer></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="slide-menu">
+        <ul>
+            <li class="home">Главная</li>
+            <li class="show">Показать журнал SW</li>
+            <li class="api">Emoji</li>
+            <li class="contact">Контакты</li>
+        </ul>
+    </nav>
+
+    <!-- Content panel -->
+    <div id="content">
+        <div class="menu-trigger">
+            <button id="install-btn" class="active">Install</button>
+        </div>
+        <div id='cont'></div>
+        <div id="mainText">Практическое задание</div>
+        <!-- Добавлены элементы для отображения изображения и текста -->
+        <div id="contactDetails" style="display: none;">
+            <img src="resources/image.png" alt="Ковалюк Екатерина Дмитриевна">
+            <p>Ковалюк Екатерина Дмитриевна</p>
+            <p>+7 981 128 3693</p>
+        </div>
+    </div>
+
+    <script>
+        // Ваш JavaScript код здесь
+
+        // Получаем элемент с id "mainText"
+        var mainTextElement = document.getElementById("mainText");
+
+        // Проверяем, существует ли такой элемент
+        if (mainTextElement) {
+            // Меняем текст в элементе
+            mainTextElement.textContent = "Ковалюк Е.Д. зЛПБ ИСиТ 19-1";
+        }
+
+        // Добавлен обработчик для кнопки "Контакты"
+        var contactBtn = document.querySelector(".contact");
+        var contactDetails = document.getElementById("contactDetails");
+
+        if (contactBtn && contactDetails) {
+            contactBtn.addEventListener("click", function () {
+                // Скрываем другие элементы и показываем контактные данные
+                document.body.className = "";
+                content.className = "";
+                contactDetails.style.display = "block";
+            });
+        }
+    </script>
+
+</body>
+
+</html>
